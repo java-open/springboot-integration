@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+    <table border="1" width="300px" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.age}"></td>
+            <td>
+                <a th:href="@{/user/edit/{id}(id=${user.id})}">修改</a>
+                <a th:href="@{/user/deleteUser/{id}(id=${user.id})}">删除</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

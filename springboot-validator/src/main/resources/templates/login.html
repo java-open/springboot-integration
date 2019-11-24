@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+</head>
+<body>
+<form th:action="@{/user/login}" method="post">
+    姓名：<input type="text" name="username"/>
+    <span style="color: red;" th:errors="${user.username}"></span><br/>
+    密码：<input type="text" name="password"/>
+    <input type="submit" value="注册"/><br/>
+</form>
+</body>
+</html>

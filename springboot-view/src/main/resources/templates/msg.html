@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Thymeleaf入门</title>
+</head>
+<body>
+    <!-- 获取变量 -->
+    <span th:text="Thymeleaf入门"></span>
+    <input th:value="${msg}"/>
+
+    <!-- 字符串操作 -->
+    <!-- false -->
+    <span th:text="${#strings.isEmpty(msg)}"></span>
+    <!-- true -->
+    <span th:text="${#strings.contains(msg, 'T')}"></span>
+    <!-- true -->
+    <span th:text="${#strings.startsWith(msg, 'T')}"></span>
+    <!-- false -->
+    <span th:text="${#strings.endsWith(msg, 'T')}"></span>
+    <!-- 14 -->
+    <span th:text="${#strings.length(msg)}"></span>
+    <!-- 0 -->
+    <span th:text="${#strings.indexOf(msg, 'T')}"></span><br/>
+
+    <span th:text="${#strings.substring(msg, 5)}"></span><br/>
+    <span th:text="${#strings.substring(msg, 5, 12)}"></span><br/>
+
+    <span th:text="${#strings.toUpperCase(msg)}"></span><br/>
+    <span th:text="${#strings.toLowerCase(msg)}"></span><br/>
+
+    <hr/>
+    <span th:text="${#dates.format(myDate)}"></span>
+    <span th:text="${#dates.format(myDate, 'yyyy年MM月dd日 HH:mm:ss')}"></span>
+    <span th:text="${#dates.year(myDate)}"></span>年<br/>
+    <span th:text="${#dates.month(myDate)}"></span>月<br/>
+    <span th:text="${#dates.day(myDate)}"></span>日<br/>
+    <span th:text="${#dates.hour(myDate)}"></span>时<br/>
+    <span th:text="${#dates.minute(myDate)}"></span>分<br/>
+    <span th:text="${#dates.second(myDate)}"></span>秒<br/>
+    <hr/>
+
+    性别：<span th:if="${sex} == 1">男</span>
+        <span th:if="${sex} == 2">女</span>
+
+    编号：<span th:switch="${id}">
+        <span th:case="1">1 张三</span>
+        <span th:case="2">2 李四</span>
+        <span th:case="3">3 王五</span>
+    </span>
+    <hr/>
+    <input th:value="${user.username}"/>
+    <span th:text="${user.age}"></span>
+    <hr/>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+        </tr>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.age}"></td>
+        </tr>
+    </table>
+    <hr/>
+    <div th:each="user : ${userList}">
+        <p th:text="${user.id}"></p>
+        <p th:text="${user.username}"></p>
+        <p th:text="${user.age}"></p>
+    </div>
+    <hr/>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr th:each="user : ${userMap}">
+            <td th:text="${user}"></td>
+        </tr>
+    </table>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr th:each="user : ${userMap}">
+            <td th:each="entry : ${user}" th:text="${entry.value.id}" ></td>
+            <td th:each="entry : ${user}" th:text="${entry.value.username}"></td>
+            <td th:each="entry : ${user}" th:text="${entry.value.age}"></td>
+        </tr>
+    </table>
+    <hr/>
+    Request：<span th:text="${#httpServletRequest.getAttribute('req')}"></span><br/>
+    Session：<span th:text="${session.sess}"></span><br/>
+    Application：<span th:text="${application.app}"></span><br/>
+    <hr/>
+    <a th:href="@{http://www.baidu.com}">绝对路径</a>
+    <a th:href="@{/index}">相对于当前项目的根路径</a>
+    <a th:href="@{/user(id=1, username=zhagnsan)}">相对路径-普通传参</a>
+    <a th:href="@{/person/1/zhangsan}">相对路径-restful传参</a>
+    <a th:href="@{/person/{id}/{name}(id=2, name=lisi)}">相对路径-restful传参</a>
+</body>
+</html>

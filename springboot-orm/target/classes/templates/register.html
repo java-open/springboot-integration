@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册用户</title>
+</head>
+<body>
+    <form th:action="@{/user/insertUser}" method="post">
+        姓名：<input name="name"/><br/>
+        年龄：<input name="age"/><br/>
+        <input type="submit" value="注册"/>
+    </form>
+</body>
+</html>

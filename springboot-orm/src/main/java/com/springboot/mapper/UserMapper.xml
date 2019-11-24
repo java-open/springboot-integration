@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 必须是接口的完全限定名 -->
+<mapper namespace="com.springboot.mapper.UserMapper">
+
+    <!-- id 必须和接口中的方法名一致 -->
+    <insert id="insertUser" parameterType="user">
+        insert into user (name, age) values (#{name}, #{age})
+    </insert>
+
+    <!-- 查询所有用户 -->
+    <select id="selectUserList" resultType="user">
+        select id, name, age from user;
+    </select>
+
+    <!-- 根据主键查询用户 -->
+    <select id="selectUserById" resultType="user">
+        select id, name, age from user where id = #{id};
+    </select>
+
+    <!-- 修改用户 -->
+    <update id="updateUser" parameterType="user">
+        update user set name = #{name}, age = #{age} where id = #{id};
+    </update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser">
+        delete from user where id = #{id}
+    </delete>
+
+</mapper>

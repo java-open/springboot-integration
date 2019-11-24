@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误提示</title>
+</head>
+<body>
+    <p>error页面</p>
+    <p>亲，出错了，请稍后再试！</p>
+    <p>错误发生时间：<span th:text="${timestamspan}"></span></p>
+    <p>HTTP状态码：<span th:text="${status}"></span></p>
+    <p>错误原因：<span th:text="${error}"></span></p>
+    <p>异常的类名：<span th:text="${excespantion}"></span></p>
+    <p>异常消息：<span th:text="${message}"></span></p>
+    <p>BindingResult异常里的各种错误：<span th:text="${errors}"></span></p>
+    <p>异常跟踪信息：<span th:text="${trace}"></span></p>
+    <p>错误发生时请求的URL路径：<span th:text="${spanath}"></span></p>
+</body>
+</html>
