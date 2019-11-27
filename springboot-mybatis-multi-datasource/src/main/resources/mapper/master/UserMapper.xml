@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.springboot.dao.master.UserDao">
+  <resultMap id="BaseResultMap" type="com.spring.springboot.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, user_name, description
+  </sql>
+
+  <select id="findByName" resultMap="BaseResultMap">
+    SELECT  <include refid="Base_Column_List"/>
+    FROM  user  where user_name =#{userName}
+  </select>
+</mapper>
