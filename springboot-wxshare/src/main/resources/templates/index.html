@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+    <title>分享demo</title>
+</head>
+<body>
+<h1>微信分享到公众号朋友圈demo</h1>
+
+<script type="text/javascript">
+    //获取随机串
+    var createNonceStr = function() {
+        return Math.random().toString(36).substr(2, 15);
+    };
+
+    // timestamp
+    var createTimeStamp = function () {
+        return parseInt(new Date().getTime() / 1000) + '';
+    };
+
+
+    $.ajax({
+        url :'http://wlw1996.ngrok.xiaomiqiu.cn/getSignature',  //获取签名的接口地址
+        type: 'post', //HTTP请求类型
+        data: {
+            url:location.href.split('#')[0], //url 如果写的是固定的值的话，分享之后在分享会报错
+            timestamp: createTimeStamp,
+            nonce_str: createNonceStr
+        },
+        timeout: 10000, //超时时间设置为10秒；
+        success: function(data) {
+
+            //微信初始化
+            wx.config({
+                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: "wx775ca6325a3255ef", // 必填，公众号的唯一标识
+                timestamp: data.timestamp , // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名，见附录1
+                jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            var openid=$("#openid").html();
+
+            wx.ready(function(){
+                var sdata = {
+                    imgUrl: "http://tiaojie.gongyitiaojie.com/userImg/def.png", // 分享图标
+                    link: "",//"http://yst3qg.natappfree.cc/bootdo/wx/weixinAutoLogin?userId="+openid,
+                    title: "微信测试分享朋友圈Demo", // 分享标题
+                    desc: "分享描述", // 分享描述
+                    success: function () {
+                        alert("分享成功");
+                    },
+                    trigger: function (res) {
+                        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回.
+                        alert("点击了分享按钮");
+                        window.location.href = "http://wlw1996.ngrok.xiaomiqiu.cn/doLogin";
+                    },
+                    cancel: function () {
+                        alert("分享失败");
+                    }
+
+                };
+                wx.onMenuShareAppMessage(sdata);// 发送给朋友
+                wx.onMenuShareTimeline(sdata);//分享到朋友圈
+            });
+            wx.error(function(res){
+                // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                //alert("抱歉，服务器初始化错误。");
+            });
+
+        },
+        error: function(xhr, type, errorThrown) {
+            //异常处理；
+            console.log(xhr);
+            console.log(type);
+            console.log(errorThrown);
+        }
+    });
+
+</script>
+
+</body>
+</html>
