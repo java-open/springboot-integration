@@ -1,0 +1,52 @@
+2019-12-27 16:15:43.586  INFO 5016 --- [main] c.t.springboot.SpringbootEsApplication   : No active profile set, falling back to default profiles: default
+2019-12-27 16:15:44.197  INFO 5016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2019-12-27 16:15:44.274  INFO 5016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 1 Elasticsearch repository interfaces.
+2019-12-27 16:15:44.279  INFO 5016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2019-12-27 16:15:44.288  INFO 5016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 Reactive Elasticsearch repository interfaces.
+2019-12-27 16:15:44.377  INFO 5016 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9326ee04-4e44-3549-a0f7-d61327b60207
+2019-12-27 16:15:44.482  INFO 5016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$46c4e577] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-27 16:15:44.700  INFO 5016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-12-27 16:15:44.710  INFO 5016 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-27 16:15:44.711  INFO 5016 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-27 16:15:44.925  INFO 5016 --- [main] o.a.c.c.C.[.[localhost].[/search]        : Initializing Spring embedded WebApplicationContext
+2019-12-27 16:15:44.925  INFO 5016 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1316 ms
+2019-12-27 16:15:45.524  INFO 5016 --- [main] o.elasticsearch.plugins.PluginsService   : no modules loaded
+2019-12-27 16:15:45.525  INFO 5016 --- [main] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-12-27 16:15:45.525  INFO 5016 --- [main] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-12-27 16:15:45.525  INFO 5016 --- [main] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-12-27 16:15:45.525  INFO 5016 --- [main] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-12-27 16:15:45.525  INFO 5016 --- [main] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-12-27 16:15:47.449  INFO 5016 --- [main] o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 127.0.0.1:9300
+2019-12-27 16:15:48.289  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapping queries
+2019-12-27 16:15:48.289  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Get Config:IndexConfig(docCode=store, indexName=store, type=base, documentPath=com.lifengdi.document.StoreDocument)
+2019-12-27 16:15:48.289  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapping query[clusterName: my-cluster, indexName: store, indexType: base]
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=marketId, queryType=IN, queryField=baseInfo.marketId, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=typeAgg, queryType=AGGREGATION, queryField=baseInfo.type, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=storeNo, queryType=SHOULD, queryField=baseInfo.storeNo, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=createdTimeTo, queryType=RANGE, queryField=baseInfo.createdTime, fromSuffix=From, toSuffix=To, separator=null, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=createdUserId, queryType=EQUAL, queryField=baseInfo.createdUserId, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=cityCode, queryType=IN, queryField=baseInfo.cityCode, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=deleted, queryType=EQUAL, queryField=baseInfo.deleted, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=tagCode, queryType=IN, queryField=tags.key, fromSuffix=null, toSuffix=null, separator=,, nestedPath=tags)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=createdTimeFrom, queryType=RANGE, queryField=baseInfo.createdTime, fromSuffix=From, toSuffix=To, separator=null, nestedPath=null)
+2019-12-27 16:15:48.305  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=size, queryType=IGNORE, queryField=size, fromSuffix=null, toSuffix=null, separator=,, nestedPath=)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=q, queryType=FULLTEXT, queryField=q, fromSuffix=null, toSuffix=null, separator=,, nestedPath=)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=_storeStatus, queryType=IN, queryField=baseInfo.status, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=cityNameAgg, queryType=AGGREGATION, queryField=baseInfo.cityName, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=tagValue, queryType=AND, queryField=tags.value, fromSuffix=null, toSuffix=null, separator=,, nestedPath=tags)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=id, queryType=IN, queryField=id, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=marketKey, queryType=IN, queryField=baseInfo.marketKey, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=storeName, queryType=FUZZY, queryField=baseInfo.storeName, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=storeStatus, queryType=IN, queryField=baseInfo.status, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=name, queryType=SHOULD, queryField=baseInfo.storeName, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=page, queryType=IGNORE, queryField=page, fromSuffix=null, toSuffix=null, separator=,, nestedPath=)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=id, queryType=IN, queryField=id, fromSuffix=null, toSuffix=null, separator=,, nestedPath=null)
+2019-12-27 16:15:48.306  INFO 5016 --- [main] c.t.s.search.impl.StoreSearchService     : Mapped query FieldDefinition(key=_tagValue, queryType=IN, queryField=tags.value, fromSuffix=null, toSuffix=null, separator=,, nestedPath=tags)
+2019-12-27 16:15:48.312  INFO 5016 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'taskExecutor'
+2019-12-27 16:15:48.837  WARN 5016 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-12-27 16:15:48.838  INFO 5016 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-12-27 16:15:48.842  WARN 5016 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-12-27 16:15:48.842  INFO 5016 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-12-27 16:15:49.046 ERROR 5016 --- [main] .d.e.r.s.AbstractElasticsearchRepository : failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [{#transport#-1}{HAEP7yoiSG-9hA4pzkgKAw}{localhost}{127.0.0.1:9300}]
+2019-12-27 16:15:49.814  INFO 5016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/search'
+2019-12-27 16:15:49.816  INFO 5016 --- [main] c.t.springboot.SpringbootEsApplication   : Started SpringbootEsApplication in 8.106 seconds (JVM running for 9.602)
